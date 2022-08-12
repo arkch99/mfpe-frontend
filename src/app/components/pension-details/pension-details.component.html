@@ -1,0 +1,31 @@
+<h1>Get Pension Details</h1>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input class="form-control" type="text" name="name" id="name" required ngModel #name="ngModel">
+		<span class="help-block" *ngIf="!name.valid && name.touched">Please enter a name</span>
+	</div>
+	<div class="form-group">
+		<label for="aadhaar">Aadhaar Number</label>
+		<input class="form-control" type="text" name="aadhaar" id="aadhaar" required ngModel #aadhaar="ngModel" pattern="\d{12}">
+		<span class="help-block" *ngIf="!aadhaar.valid && aadhaar.touched">Aadhaar must be 12 digits long and numeric</span>
+	</div>
+	<div class="form-group">
+		<label for="dob">Date of Birth</label>
+		<input class="form-control" type="date" name="dob" id="dob" required ngModel #dob="ngModel">
+		<span class="help-block" *ngIf="!dob.valid && dob.touched">Please enter a valid date of birth</span>
+	</div>
+	<div class="form-group">
+		<label for="pan">PAN</label>
+		<input class="form-control" type="text" name="pan" id="pan" required ngModel #pan="ngModel" minlength="10" maxlength="10">
+		<span class="help-block" *ngIf="!pan.valid && pan.touched">PAN must be 10 digits long</span>
+	</div>
+	<div class="form-group">
+		<label for="pension-type">Pension Type</label>
+		<select class="form-control" name="pension-type" id="pension-type">
+			<option value="self" selected>Self</option>
+			<option value="family">Family</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+</form>
