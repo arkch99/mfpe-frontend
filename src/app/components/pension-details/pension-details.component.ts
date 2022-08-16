@@ -11,11 +11,11 @@ import { ProcessPensionService } from 'src/app/services/process-pension.service'
 export class PensionDetailsComponent implements OnInit {
 
   msg: string;
-  errors: string[];
+  error: boolean;
 
   constructor(private pensionService: ProcessPensionService) {
     this.msg="";
-    this.errors = [];
+    this.error = false;
    }
 
   ngOnInit(): void {
@@ -24,14 +24,17 @@ export class PensionDetailsComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log("Submitted pension details form");
     console.log(form.value);
+
     let pensionerInput = new PensionerInput(form.value.name, form.value.dob, form.value.pan, form.value.aadhaar, form.value['pension-type']);
 
     this.pensionService.getPensionDetails(pensionerInput)
     .subscribe(
       data => {
+        this.error = false;
         this.msg = `The pension amount is ${data.pensionAmount}`;
       },
       error => {        
+          this.error = true;
           console.log(error);          
           if(error.status == 404) {
             this.msg = "Service is unavailable";
