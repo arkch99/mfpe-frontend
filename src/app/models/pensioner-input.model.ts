@@ -3,7 +3,7 @@ export class PensionerInput {
         public name: String,
         public dateOfBirth: Date,
         public pan: String,
-        public aadhaarNumber: String,
+        public adhaar: String,
         public pensionType: String,
     ) { }
 }

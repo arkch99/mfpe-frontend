@@ -23,6 +23,6 @@ export class ProcessPensionService {
 
   // Method to get pension details
   getPensionDetails(pensionerInput: PensionerInput): Observable<PensionDetail> {
-    return this.http.post<PensionDetail>(`${this.baseUrl}/pensionerInput`, pensionerInput);
+    return this.http.post<PensionDetail>(`${this.baseUrl}/pensionDetail`, pensionerInput);
   }
 }

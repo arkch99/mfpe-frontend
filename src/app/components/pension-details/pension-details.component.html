@@ -1,5 +1,5 @@
 <h1>Get Pension Details</h1>
-<form (ngSubmit)="onSubmit()" #form="ngForm">
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
 	<div class="form-group">
 		<label for="name">Name</label>
 		<input class="form-control" type="text" name="name" id="name" required ngModel #name="ngModel">
@@ -17,15 +17,19 @@
 	</div>
 	<div class="form-group">
 		<label for="pan">PAN</label>
-		<input class="form-control" type="text" name="pan" id="pan" required ngModel #pan="ngModel" minlength="10" maxlength="10">
-		<span class="help-block" *ngIf="!pan.valid && pan.touched">PAN must be 10 digits long</span>
+		<input class="form-control" type="text" name="pan" id="pan" required ngModel #pan="ngModel" >
+		<span class="help-block" *ngIf="!pan.valid && pan.touched">PAN must not be empty</span>
 	</div>
 	<div class="form-group">
 		<label for="pension-type">Pension Type</label>
-		<select class="form-control" name="pension-type" id="pension-type">
+		<select class="form-control" ngModel name="pension-type" id="pension-type">
 			<option value="self" selected>Self</option>
 			<option value="family">Family</option>
 		</select>
 	</div>
 	<button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+	<div class="mt-3">{{ msg }}</div>
+	<div *ngFor='let error of errors'>
+		<p>{{ error }}</p>
+	</div>
 </form>
