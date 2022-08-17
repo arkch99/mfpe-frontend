@@ -12,7 +12,7 @@ import { ProcessPensionResponse } from '../models/process-pension-reponse.model'
 export class ProcessPensionService {
 
   // add your base URL here
-  baseUrl: string = 'http://localhost:8080'
+  baseUrl: string = 'http://localhost:8080/api'
 
   constructor(private http: HttpClient) { }
 

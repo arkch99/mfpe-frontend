@@ -14,7 +14,7 @@ export class AuthService {
     private router: Router
   ) { }
 
-  baseUrl: string = 'http://localhost:8082'
+  baseUrl: string = 'http://localhost:8082/api'
 
   // hit the backend to login
   login(user: User): Observable<any> {

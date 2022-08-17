@@ -7,7 +7,7 @@ import { AuthGuardService } from './utils/auth-check.guard';
 import { RestrictAccessGuard } from './utils/restrict-access-guard';
 
 const routes: Routes = [
-  {path:"", pathMatch: "full", redirectTo: "/login" },
+  {path:"", pathMatch: "full", redirectTo: "login" },
   {path:"pensionDetails", component: PensionDetailsComponent, canActivate: [AuthGuardService]},
   {path:"processPension", component: ProcessPensionComponent, canActivate: [AuthGuardService]},
   {path:"login", component: LoginComponent, canActivate: [RestrictAccessGuard]}
