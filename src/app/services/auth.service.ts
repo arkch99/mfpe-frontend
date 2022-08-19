@@ -15,6 +15,7 @@ export class AuthService {
   ) { }
 
   baseUrl: string = 'http://localhost:8082/api'
+  // baseUrl: string = 'http://auth-service.us-east-1.elasticbeanstalk.com/api';
 
   // hit the backend to login
   login(user: User): Observable<any> {

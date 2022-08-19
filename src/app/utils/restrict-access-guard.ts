@@ -16,7 +16,7 @@ import { AuthService } from "../services/auth.service";
 	  route: ActivatedRouteSnapshot,
 	  state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 		if (this.authService.isLoggedIn()) {  
-		  this.router.navigateByUrl("")
+		  this.router.navigateByUrl("pensionDetails")
 		}
 		return true;
 	}
